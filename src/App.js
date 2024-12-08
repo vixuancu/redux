@@ -1,9 +1,8 @@
 import logo from "./logo.svg";
-import "./App.css";
+// import "./App.css";
 import { increaseCounter, decreaseCounter } from "./action/actions";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
-import { useEffect } from "react";
+import Home from "./components/Home";
 function App(props) {
   const newCount = useSelector((state) => {
     return state.counter.count;
@@ -14,16 +13,10 @@ function App(props) {
     // props.increaseCounter();
     dispatch(increaseCounter());
   };
-  const fetchAllUser = async () => {
-    const res = await axios.get("http://localhost:8080/users/all");
-    const data = res && res.data ? res.data : [];
-    console.log("check data: ", data);
-  };
-  useEffect(() => {
-    fetchAllUser();
-  }, []);
+
   return (
-    <div className="App">
+    <>
+      {/* <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello world with React and Hoi Dan IT!</h1>
@@ -35,7 +28,9 @@ function App(props) {
           Decrease Count
         </button>
       </header>
-    </div>
+    </div> */}
+      <Home />
+    </>
   );
 }
 
